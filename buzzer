@@ -1,0 +1,16 @@
+import RPi.GPIO as gpio
+import time
+gpio.setmode(gpio.BOARD)
+gpio.setwarnings(False)
+gpio.setup(40,gpio.IN)
+gpio.setup(7,gpio.OUT)
+while(True):
+    if(gpio.input(40)==1):
+        print("obstacle detected")
+        gpio.output(7,gpio.HIGH)
+        time.sleep(.5)
+    else:
+        print(" obstacle not detected");
+        gpio.output(7,gpio.LOW)
+        time.sleep(.5)
+    
